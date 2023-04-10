@@ -1,8 +1,8 @@
 # Book Store solution for Clean architecture using .NET Core
 
-<h1> The documentation is not compelte yet .... I'm working it and soon I will share it :) w</h1>
+## <h1> The documentation is not compelte yet .... I'm working it and soon I will share it :) w</h1>
 
-<h3>For the database used in this demo goto this <a href="https://www.databasestar.com/sample-bookstore-database/)"> BookStore </a></h3>
+### <h3>For the database used in this demo goto this <a href="https://www.databasestar.com/sample-bookstore-database/)"> BookStore </a></h3>
 
 <br />
 <p align="center">
