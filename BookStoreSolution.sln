@@ -27,7 +27,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Weather", "Weather", "{F16F
 		GetForcasts.http = GetForcasts.http
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Api", "BookStore.Api\BookStore.Api.csproj", "{0FCB015C-D6FC-4563-92F0-BCBB6944C4E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Api", "BookStore.Api\BookStore.Api.csproj", "{0FCB015C-D6FC-4563-92F0-BCBB6944C4E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ui", "ui", "{05558103-6AE0-4AE6-98A3-27534DF71879}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.BlazorUi", "BookStore.BlazorUi\BookStore.BlazorUi.csproj", "{1608F468-A91F-416B-8DD2-7C24AF77488B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,10 @@ Global
 		{0FCB015C-D6FC-4563-92F0-BCBB6944C4E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FCB015C-D6FC-4563-92F0-BCBB6944C4E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FCB015C-D6FC-4563-92F0-BCBB6944C4E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1608F468-A91F-416B-8DD2-7C24AF77488B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1608F468-A91F-416B-8DD2-7C24AF77488B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1608F468-A91F-416B-8DD2-7C24AF77488B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1608F468-A91F-416B-8DD2-7C24AF77488B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +71,7 @@ Global
 		{AA2A2FCC-D614-4B07-8449-3E88A1BC2B94} = {CA3733E3-92EE-4263-9FF7-9A029AAE4427}
 		{F16F5336-05CF-4064-A859-0BAEC79E39E4} = {AA2A2FCC-D614-4B07-8449-3E88A1BC2B94}
 		{0FCB015C-D6FC-4563-92F0-BCBB6944C4E4} = {CA3733E3-92EE-4263-9FF7-9A029AAE4427}
+		{1608F468-A91F-416B-8DD2-7C24AF77488B} = {05558103-6AE0-4AE6-98A3-27534DF71879}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3A87403-FA2D-4CDB-B54B-7B96191D8FD7}

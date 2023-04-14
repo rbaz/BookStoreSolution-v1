@@ -16,14 +16,15 @@ namespace BookStore.Api.Controllers
             _orderService = orderService;
         }
 
-        [HttpGet]
+        [HttpGet("")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(IEnumerable<CustOrderModel>), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetAllOrderAsync()
+        //public async Task<IActionResult> GetAllOrderAsync()
+        public async Task<IEnumerable<CustOrderModel>> GetAllOrderAsync()
         {            
             var orders = await _orderService.GetAllOrderAsync();
 
-            return Ok(orders);
+            return orders;
         }
 
         [HttpGet("{orderId}")]
