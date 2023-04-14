@@ -1,7 +1,9 @@
 ﻿using bookStore.Application.Models;
 using bookStore.Domain.Entities;
 using BookStore.Application.Contracts;
+using BookStore.Application.Filter;
 using BookStore.Application.Services;
+using BookStore.Application.Wrappers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,27 +17,21 @@ namespace BookStore.Api.Controllers
         public AuthorController(IAuthorService authorService)
         {
             _authorService = authorService;
-        }
-
-        //[HttpGet]
-        //[ProducesResponseType(typeof(IEnumerable<AuthorModel>), StatusCodes.Status200OK)]
-        //public async Task<IActionResult> GetAllAuthorAsy()
-        //{
-        //    var authors = await _authorService.GetAllAuthorAsy();
-
-        //    return Ok(authors);
-        //}
+        }        
 
         [HttpGet]
+        [Produces("application/json")]
         [ProducesResponseType(typeof(IEnumerable<AuthorModel>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAllAuthorAsync()
         {
-            var authors = await _authorService.GetAllAuthorAsync();
+            //var authors = await _authorService.GetAllAuthorAsync();
+            var authors = await _authorService.GetAllAuthorAsy();
 
             return Ok(authors);
         }
 
         [HttpGet("{authorId}")]
+        [Produces("application/json")]
         [ProducesResponseType(typeof(AuthorModel), StatusCodes.Status200OK)]
         public async Task<AuthorModel> GetAuthorByIdAsync(int authorId)
         {

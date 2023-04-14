@@ -8,9 +8,10 @@ namespace BookStore.Application
     {
         public static IServiceCollection ApplicationDependencyInjection(this IServiceCollection services)
         {
-
             services.AddScoped<IAuthorService, AuthorService>();
             services.AddScoped<IBookService, BookService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<ICustomerService, CustomerService>();
 
             return services;
         }

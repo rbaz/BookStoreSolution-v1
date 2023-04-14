@@ -12,16 +12,17 @@ namespace BookStore.Infrastrcuture
 {
     public static class OtherDependencyInjection
     {
-        public static IServiceCollection InfraDependencyInjection(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection InfraDependencyInjection(this IServiceCollection services)
         {
-            services.AddDbContext<BookStoreDbContext>(options =>
-               options.UseSqlServer(
-                   configuration.GetConnectionString("BookStoreDb")));
+            //services.AddDbContext<BookStoreDbContext>(options =>
+            //   options.UseSqlServer(
+            //       configuration.GetConnectionString("BookStoreDb")));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped(typeof(IAuthorRepository), typeof(AuthorRepository));
             services.AddScoped(typeof(IBookRepository), typeof(BookRepository));
-            services.AddScoped(typeof(ISpecification<>), typeof(SpecificationEvaluator<>));
+            services.AddScoped(typeof(ICustomerRepository), typeof(CustomerRepository));
+            services.AddScoped(typeof(IOrderRepository), typeof(OrderRepository));
 
             return services;
         }

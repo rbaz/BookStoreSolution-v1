@@ -16,11 +16,11 @@ namespace BookStore.Infrastructure.Persistences.Repositories
             _dbContext = dbContext;
             _dbSet = _dbContext.Set<Author>();
         }
-
+                
         public async Task<IEnumerable<Author>> GetAllAuthorAsync(int pageIndex, int pageSize)
         {
 
-            var authors = await _dbContext.Authors
+            var authors = await _dbSet
                 .Skip((pageIndex - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
@@ -32,8 +32,7 @@ namespace BookStore.Infrastructure.Persistences.Repositories
                     .Query()
                     .Include(b => b.Language)
                     .Include(b => b.OrderLines)
-                    .Include(b => b.Publisher)
-                    .Include(b => b.Authors)
+                    .Include(b => b.Publisher)                    
                     .LoadAsync();
             }
 
@@ -41,29 +40,36 @@ namespace BookStore.Infrastructure.Persistences.Repositories
 
         }
 
-
         public async Task<IEnumerable<Author>> GetAllAuthorAsy(int pageIndex, int pageSize)
         {
+            //var authorModels = await _dbContext.Authors
+            //                    .OrderBy(a => a.AuthorName)
+            //                    .Skip((pageIndex - 1) * pageSize)
+            //                    .Take(pageSize)
+            //                    .Select(a => new Author
+            //                    {
+            //                        AuthorId = a.AuthorId,
+            //                        AuthorName = a.AuthorName
+            //                    })
+            //                    .ToListAsync();
+
+            //return authorModels;
             var authorModels = await _dbContext.Authors
-                                .OrderBy(a => a.AuthorName)
-                                .Skip((pageIndex - 1) * pageSize)
-                                .Take(pageSize)
-                                .Select(a => new Author
-                                {
-                                    AuthorId = a.AuthorId,
-                                    AuthorName = a.AuthorName
-                                })
-                                .ToListAsync();
+                    .Include(a => a.Books)
+                    .OrderBy(a => a.AuthorName)
+                    .Skip((pageIndex - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync();
 
             return authorModels;
+
         }
 
-
-        public async Task<Author?> GetAuthorByIdAsync(int id)
+        public async Task<Author?> GetAuthorByIdAsync(int authorId)
         {
             var author = await _dbContext.Authors
                 .Include(a => a.Books)
-                .FirstOrDefaultAsync(a => a.AuthorId == id);
+                .FirstOrDefaultAsync(a => a.AuthorId == authorId);
 
             return author;
         }

@@ -32,8 +32,11 @@ builder.Services
     .ApplicationDependencyInjection()
     .AddAutoMapper(typeof(AuthorProfile));
 
+
 builder.Services.AddScoped<AuthorService>();
 builder.Services.AddScoped<BookService>();
+builder.Services.AddScoped<CustomerService>();
+builder.Services.AddScoped<OrderService>();
 builder.Services.AddAutoMapper(typeof(AuthorProfile));
 
 builder.Services.AddControllersWithViews()

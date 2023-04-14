@@ -10,27 +10,19 @@ namespace BookStore.Infrastrcuture
 {
     public static class DependencyInjectionInfraHelpers
     {
-        public static IServiceCollection InfrastructureDependencyInjection(this IServiceCollection services)
-        {            
+        public static IServiceCollection InfraDependencyInjection(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<BookStoreDbContext>(options =>
+                   options.UseSqlServer(
+                       configuration.GetConnectionString("BookStoreDb")));
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));            
             services.AddScoped(typeof(IAuthorRepository), typeof(AuthorRepository));
             services.AddScoped(typeof(IBookRepository), typeof(BookRepository));
+            services.AddScoped(typeof(ICustomerRepository), typeof(CustomerRepository));
+            services.AddScoped(typeof(IOrderRepository), typeof(OrderRepository));
 
             return services;
-        }
-
-        public static IServiceCollection InfrastructureDependencyInjection1(IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddDbContext<BookStoreDbContext>(options =>
-               options.UseSqlServer(
-                   configuration.GetConnectionString("BookStoreDb")));
-
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped(typeof(IAuthorRepository), typeof(AuthorRepository));
-            services.AddScoped(typeof(IBookRepository), typeof(BookRepository));
-
-            return services;
-        }
+        }        
     }
 }

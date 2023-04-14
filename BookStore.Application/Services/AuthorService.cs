@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using bookStore.Application.Models;
-using bookStore.Domain.Entities;
 using BookStore.Application.Contracts;
 using BookStore.Domain.Persistences.Repositories;
 
@@ -19,13 +18,13 @@ namespace BookStore.Application.Services
 
         public async Task<IEnumerable<AuthorModel>> GetAllAuthorAsy()
         {
-            var authors = await _authorRepository.GetAllAuthorAsy(pageIndex: 3, pageSize: 25);
+            var authors = await _authorRepository.GetAllAuthorAsy(3, 25);
             return _mapper.Map<IEnumerable<AuthorModel>>(authors);
         }
 
         public async Task<IEnumerable<AuthorModel>> GetAllAuthorAsync()
         {
-            var authors = await _authorRepository.GetAllAuthorAsync(pageIndex: 3, pageSize: 25);
+            var authors = await _authorRepository.GetAllAuthorAsync(3, 25);
             return _mapper.Map<IEnumerable<AuthorModel>>(authors);
         }
 
@@ -34,5 +33,11 @@ namespace BookStore.Application.Services
             var author = await _authorRepository.GetAuthorByIdAsync(id);
             return _mapper.Map<AuthorModel>(author);
         }
+
+        //public async Task<IEnumerable<AuthorModel>> GetAll(int pageNumber, int pageSize)
+        //{
+        //    var authors = await _authorRepository.GetAll(pageNumber, pageSize);
+        //    return _mapper.Map<IEnumerable<AuthorModel>>(authors);
+        //}
     }
 }

@@ -8,7 +8,7 @@ namespace BookStore.Application.Services
     public interface IBookService
     {
         Task<IEnumerable<BookModel>> GetAllAsync();
-        Task<BookModel> GetByIdAsync(int id);
+        Task<BookModel> GetByIdAsync(int bookId);
         
         //Task<BookModel> AddAsync(BookModel book);
         //Task UpdateAsync(BookModel book);
