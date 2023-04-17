@@ -32,28 +32,30 @@
                 </tr>
                 <tr style="display: none;" id=@($"details-{order.OrderId}")>
                     <td colspan="5">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Order Line Id</th>
-                                    <th scope="col">Order Id</th>
-                                    <th scope="col">Book Id</th>
-                                    <th scope="col">Price</th>
-                                </tr>
-                            </thead>
-                            @*orderLines = @order.OrderLines.Where(o=>o.OrderId == @order.OrderId)*@
-                            <tbody>
-                                @foreach (var orderLine in @order.OrderLines)
-                                {
+                        <div style="float:left;">
+                            <table class="table">
+                                <thead>
                                     <tr>
-                                        <td>@orderLine.LineId</td>
-                                        <td>@orderLine.OrderId</td>
-                                        <td>@orderLine.BookId</td>
-                                        <td>@orderLine.Price</td>
+                                        <th scope="col">Order Line Id</th>
+                                        <th scope="col">Order Id</th>
+                                        <th scope="col">Book Id</th>
+                                        <th scope="col">Price</th>
                                     </tr>
-                                }
-                            </tbody>
-                        </table>
+                                </thead>
+                                @*orderLines = @order.OrderLines.Where(o=>o.OrderId == @order.OrderId)*@
+                                <tbody>
+                                    @foreach (var orderLine in @order.OrderLines)
+                                    {
+                                        <tr>
+                                            <td>@orderLine.LineId</td>
+                                            <td>@orderLine.OrderId</td>
+                                            <td>@orderLine.BookId</td>
+                                            <td>@orderLine.Price</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </td>
                 </tr>
             }
@@ -72,8 +74,8 @@
         orders = await _refitClient.GetAllOrderAsync();
 
         // Load the jsShowHideDetails.js file
-        await jsRuntime.InvokeVoidAsync("eval", await File.ReadAllTextAsync("./wwwroot/scripts/jsShowHideDetails.js"));    
-    }    
+        await jsRuntime.InvokeVoidAsync("eval", await File.ReadAllTextAsync("./wwwroot/scripts/jsShowHideDetails.js"));
+    }
 
     async Task toggleElementVisibility(ElementReference element)
     {
