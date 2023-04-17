@@ -19,9 +19,9 @@ public partial class CustOrderModel
 
     public virtual AddressModel? DestAddress { get; set; }
 
-    public virtual ICollection<OrderHistoryModel> OrderHistories { get; } = new List<OrderHistoryModel>();
+    public virtual ICollection<OrderHistoryModel>? OrderHistories { get; set; }
 
-    public virtual ICollection<OrderLineModel> OrderLines { get; } = new List<OrderLineModel>();
+    public virtual ICollection<OrderLineModel>? OrderLines { get; set;  }
 
     public virtual ShippingMethodModel? ShippingMethod { get; set; }
 }

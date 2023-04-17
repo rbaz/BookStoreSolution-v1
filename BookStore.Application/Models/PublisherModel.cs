@@ -9,5 +9,5 @@ public partial class PublisherModel
 
     public string? PublisherName { get; set; }
 
-    public virtual ICollection<BookModel> Books { get; } = new List<BookModel>();
+    public virtual ICollection<BookModel>? Books { get; set; }
 }

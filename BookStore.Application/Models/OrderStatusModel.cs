@@ -9,5 +9,5 @@ public partial class OrderStatusModel
 
     public string? StatusValue { get; set; }
 
-    public virtual ICollection<OrderHistoryModel> OrderHistories { get; } = new List<OrderHistoryModel>();
+    public virtual ICollection<OrderHistoryModel> OrderHistories { get; set; }
 }

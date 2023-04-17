@@ -20,11 +20,11 @@ namespace BookStore.Api.Controllers
         [Produces("application/json")]
         [ProducesResponseType(typeof(IEnumerable<CustOrderModel>), StatusCodes.Status200OK)]
         //public async Task<IActionResult> GetAllOrderAsync()
-        public async Task<IEnumerable<CustOrderModel>> GetAllOrderAsync()
+        public async Task<IActionResult> GetAllOrderAsync()
         {            
             var orders = await _orderService.GetAllOrderAsync();
 
-            return orders;
+            return Ok(orders);
         }
 
         [HttpGet("{orderId}")]
@@ -36,5 +36,15 @@ namespace BookStore.Api.Controllers
 
             return order;
         }
+
+        //[HttpGet("{orderId}")]
+        //[Produces("application/json")]
+        //[ProducesResponseType(typeof(IEnumerable<OrderLineModel>), StatusCodes.Status200OK)]        
+        //public async Task<IEnumerable<OrderLineModel>> GetOrderLineAsync(int orderId)
+        //{
+        //    var orderLines = await _orderService.GetOrderLineAsync(orderId);
+
+        //    return orderLines;
+        //}
     }
 }

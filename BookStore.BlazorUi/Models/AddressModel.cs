@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace BookStore.BlazorUi.Models
+{
+    public partial class AddressModel
+    {
+        public int AddressId { get; set; }
+
+        public string? StreetNumber { get; set; }
+
+        public string? StreetName { get; set; }
+
+        public string? City { get; set; }
+
+        public int? CountryId { get; set; }
+
+        public virtual CountryModel? Country { get; set; }
+
+        public virtual ICollection<CustOrderModel>? CustOrders { get; set; }
+
+        public virtual ICollection<CustomerAddressModel>? CustomerAddresses { get; set; }
+    }
+}

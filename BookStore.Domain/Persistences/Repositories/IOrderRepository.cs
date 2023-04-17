@@ -11,5 +11,6 @@ namespace BookStore.Domain.Persistences.Repositories
     {
         public Task<IEnumerable<CustOrder>> GetAllOrderAsync(int pageIndex, int pageSize);
         public Task<CustOrder> GetOrderByIdAsync(int orderId);
+        //public Task<IEnumerable<OrderLine>> GetOrderLineAsync(int orderId);
     }
 }

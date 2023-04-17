@@ -11,5 +11,6 @@ namespace BookStore.Application.Contracts
     {
         Task<IEnumerable<CustOrderModel>> GetAllOrderAsync();
         Task<CustOrderModel> GetOrderByIdAsync(int orderId);
+        //Task<IEnumerable<OrderLineModel>> GetOrderLineAsync(int orderId);
     }
 }

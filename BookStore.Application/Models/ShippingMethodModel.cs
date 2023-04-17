@@ -11,5 +11,5 @@ public partial class ShippingMethodModel
 
     public decimal? Cost { get; set; }
 
-    public virtual ICollection<CustOrderModel> CustOrders { get; } = new List<CustOrderModel>();
+    public virtual ICollection<CustOrderModel>? CustOrders { get; set; }
 }

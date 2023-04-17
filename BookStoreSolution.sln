@@ -31,7 +31,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Api", "BookStore.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ui", "ui", "{05558103-6AE0-4AE6-98A3-27534DF71879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.BlazorUi", "BookStore.BlazorUi\BookStore.BlazorUi.csproj", "{1608F468-A91F-416B-8DD2-7C24AF77488B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.BlazorUi", "BookStore.BlazorUi\BookStore.BlazorUi.csproj", "{1608F468-A91F-416B-8DD2-7C24AF77488B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

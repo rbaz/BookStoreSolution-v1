@@ -16,9 +16,10 @@ namespace BookStore.Infrastrcuture.Persistences.Repositories
         }
         public async Task<IEnumerable<CustOrder>> GetAllOrderAsync(int pageIndex, int pageSize)
         {
-            var orders = await _dbSet
+            var orders = await _dbSet                
                 .Skip((pageIndex - 1) * pageSize)
                 .Take(pageSize)
+                .Include(o=>o.OrderLines)
                 .ToListAsync();
 
             return orders;
@@ -28,9 +29,20 @@ namespace BookStore.Infrastrcuture.Persistences.Repositories
         {
             var order = await _dbSet
                 .Include(o => o.Customer)
+                .Include(o => o.OrderLines)
                 .FirstOrDefaultAsync(o => o.OrderId == orderId);
 
             return order;
         }
+
+        //public async Task<IEnumerable<OrderLine>> GetOrderLineAsync(int orderId)
+        //{
+        //    var orderLines = await _dbContext
+        //        .OrderLines.Where(ol => ol.OrderId == orderId)
+        //        .ToListAsync();
+
+        //    return orderLines;
+          
+        //}
     }
 }

@@ -17,7 +17,7 @@ public partial class AddressModel
 
     public virtual CountryModel? Country { get; set; }
 
-    public virtual ICollection<CustOrderModel> CustOrders { get; } = new List<CustOrderModel>();
+    public virtual ICollection<CustOrderModel>? CustOrders { get; set; }
 
-    public virtual ICollection<CustomerAddressModel> CustomerAddresses { get; } = new List<CustomerAddressModel>();
+    public virtual ICollection<CustomerAddressModel>? CustomerAddresses { get; set; }
 }

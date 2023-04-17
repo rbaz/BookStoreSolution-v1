@@ -11,5 +11,5 @@ public partial class BookLanguageModel
 
     public string? LanguageName { get; set; }
 
-    public virtual ICollection<BookModel> Books { get; } = new List<BookModel>();
+    public virtual ICollection<BookModel>? Books { get; set; }
 }

@@ -8,6 +8,9 @@ namespace BookStore.BlazorUi.externalServices
     {
         [Get("/order")]
         //Task<IActionResult> GetAllOrderAsync();
-        Task<IEnumerable<CustOrder>> GetAllOrderAsync();
+        Task<ICollection<CustOrderModel>> GetAllOrderAsync();
+
+        //[Get("/order")]        
+        //Task<IEnumerable<OrderLine>> GetOrderLineAsync(int orderId);
     }
 }

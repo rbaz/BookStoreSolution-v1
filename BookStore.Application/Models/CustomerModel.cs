@@ -13,7 +13,7 @@ public partial class CustomerModel
 
     public string? Email { get; set; }
 
-    public virtual ICollection<CustOrderModel> CustOrders { get; } = new List<CustOrderModel>();
+    public virtual ICollection<CustOrderModel>? CustOrders { get; set; } 
 
-    public virtual ICollection<CustomerAddressModel> CustomerAddresses { get; } = new List<CustomerAddressModel>();
+    public virtual ICollection<CustomerAddressModel>? CustomerAddresses { get; set; }
 }

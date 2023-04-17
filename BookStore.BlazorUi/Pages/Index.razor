@@ -1,5 +1,5 @@
 ﻿@page "/"
-@using BookStore.BlazorUi.Models;
+@using BookStore.BlazorUi.Models
 @using BookStore.BlazorUi.externalServices;
 
 @inject IRefitClient _refitClient
@@ -35,7 +35,7 @@
 <SurveyPrompt Title="How is Blazor working for you?" />
 
 @code{
-    private IEnumerable<CustOrder> orders { get; set; }
+    private IEnumerable<CustOrderModel>? orders { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
